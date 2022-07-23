@@ -42,6 +42,12 @@ locals {
       ## allows RDP from some_security_group_id
       "ingress,tcp,3389" = "some_security_group_id"
     }
+    per_sg_id = {
+      some_security_group_id = [
+        "egress,tcp,3389",
+        "egress,tcp,22",
+      ]
+    }
     self = {
       # allow all ICMP to other members of this secruity group
       "icmp,-1" = ""
